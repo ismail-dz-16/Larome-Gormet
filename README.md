@@ -1,7 +1,7 @@
 # 🍽️ Luxury Restaurant Management System
 ## A Professional Headless E-commerce Solution
 
-[![Developer](https://img.shields.io/badge/Developer-Ismail%20Benmbarek-blue.svg)](https://github.com/your-username)
+[![Developer](https://img.shields.io/badge/Developer-Ismail%20Benmbarek-blue.svg)](https://github.com/ismail-dz-16)
 [![Framework](https://img.shields.io/badge/Frontend-React.js-61DAFB.svg)](#)
 [![Backend](https://img.shields.io/badge/Backend-WooCommerce-96588A.svg)](#)
 
