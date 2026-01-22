@@ -1,55 +1,83 @@
-# 🍽️ Luxury Restaurant Management System
-## A Professional Headless E-commerce Solution
+🍽️ Luxury Restaurant Management System
+A Professional Headless E-commerce Solution
+🌟 Project Overview
+This is a modern, full-stack restaurant application. It uses React for a beautiful, fast user interface and WordPress/WooCommerce as a powerful "Engine" to manage food items, prices, and customer orders.
 
-[![Developer](https://img.shields.io/badge/Developer-Ismail%20Benmbarek-blue.svg)](https://github.com/ismail-dz-16)
-[![Framework](https://img.shields.io/badge/Frontend-React.js-61DAFB.svg)](#)
-[![Backend](https://img.shields.io/badge/Backend-WooCommerce-96588A.svg)](#)
+👥 Credits & Roles
+Lead Developer: Ismail Benmbarek (System Architecture & Full-Stack Development)
 
-### 🌟 Project Overview
-This is a modern, full-stack restaurant application. It uses **React** for a beautiful, fast user interface and **WordPress/WooCommerce** as a powerful "Engine" to manage food items, prices, and customer orders.
+📂 Folder Structure Made Simple
+frontend/: Contains the visual website (React).
 
----
+backend/: Contains the WordPress data and setup files.
 
-### 👥 Credits & Roles
-* **Lead Developer:** Ismail Benmbarek (System Architecture & Full-Stack Development)
+🚀 Detailed Setup Guide
+1. Backend Configuration (WordPress)
+You need a local server environment (like LocalWP, XAMPP, or Laragon).
 
----
+Create a Site: Setup a fresh WordPress installation.
 
-### 📂 Folder Structure Made Simple
-* `frontend/`: Contains the visual website (React).
-* `backend/`: Contains the WordPress data and setup files.
+Import Database: - Open phpMyAdmin.
 
----
+Select your database name on the left.
 
-### 🚀 How to Setup the Project (Easy Steps)
+Click the Import tab at the top.
 
-#### 1. Setup the Backend (WordPress)
-You need a "local server" to run WordPress. I recommend using **LocalWP** or **XAMPP**.
+Choose the file backend/database.sql.
 
-1.  **Create a Site:** Create a new WordPress site on your computer.
-2.  **Import Database:** - Open **phpMyAdmin**.
-    - Click on your site's database name.
-    - Click **Import**, choose the `backend/database.sql` file, and click **Go**.
-3.  **Install Plugins:**
-    - Go to your WordPress Dashboard > Plugins.
-    - Install: **WooCommerce**, **CoCart**, and **WooCommerce Legacy REST API**.
-4.  **Final Tweak:** - Go to **Settings > Permalinks**, select **"Post name"**, and Save.
-    - Go to **WooCommerce > Settings > Advanced > Legacy API** and check the box to **Enable** it.
+Scroll down and click Import/Go.
 
-#### 2. Setup the Frontend (React)
-1.  **Open Terminal:** Go into the `frontend` folder.
-2.  **Install:** Type `npm install` and wait for it to finish.
-3.  **Connect:** - Enter `.env`.
-    - Put your WordPress link and your API Keys inside.
-4.  **Run:** Type `npm start`.
----
+Update URLs (Important): - Since the database was exported from a different local URL, use the "Better Search Replace" plugin.
 
-### 🛠 Technical Highlights
-* **Headless Design:** The website "talks" to WordPress through the cloud.
-* **Smart Cart:** Orders are saved and managed automatically.
-* **Localhost Ready:** Includes a special fix for running on local computers without SSL errors.
+Search for the old URL (e.g., http://luxury.local) and replace it with your new local URL (e.g., http://localhost/restaurant).
 
----
+Install Plugins:
 
-### ⚖️ License & Usage
-This project was custom-built by **Ismail Benmbarek** for the INSFP Rahmania student group. It is intended for educational evaluation and portfolio demonstration.
+Go to Plugins > Add New.
+
+Search and Install: WooCommerce, CoCart, and WooCommerce Legacy REST API.
+
+Critical Settings:
+
+Permalinks: Go to Settings > Permalinks, select "Post name", and Save.
+
+Legacy API: Go to WooCommerce > Settings > Advanced > Legacy API and check "Enable the legacy REST API".
+
+2. Frontend Configuration (React)
+Before running the app, you must link it to your WordPress backend.
+
+Open Terminal: Navigate to the frontend/ folder.
+
+Setup Environment Variables:
+
+Find the file named .env.example.
+
+Rename it to exactly .env.
+
+Open .env in VS Code and fill in your details:
+
+Bash
+
+REACT_APP_WC_URL=http://your-local-site.local
+REACT_APP_WC_CONSUMER_KEY=ck_xxxxxxxxxxxxxxxx
+REACT_APP_WC_CONSUMER_SECRET=cs_xxxxxxxxxxxxxxxx
+(Generate these keys in WooCommerce > Settings > Advanced > REST API)
+
+Install & Run:
+
+Run npm install to download the libraries.
+
+Run npm start to launch the website.
+
+🛠 Technical Highlights
+Headless Design: The React frontend consumes the WooCommerce REST API for products and orders.
+
+StoreContext: Uses React Context API to handle global state without external libraries like Redux.
+
+Localhost Bypass: Includes a custom PHP filter (see backend/plugins.txt) to allow local API requests without SSL.
+
+⚖️ License & Usage
+This project was custom-built by Ismail Benmbarek for the INSFP Rahmania student group. It is intended for educational evaluation and portfolio demonstration.
+
+💡 Pro Tip
+To see the rendered version of this documentation locally, press Ctrl + Shift + V in VS Code.
