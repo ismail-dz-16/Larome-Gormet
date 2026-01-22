@@ -1,0 +1,41 @@
+============================================================
+      WP BACKEND SETUP INSTRUCTIONS - LUXURY RESTAURANT
+============================================================
+
+Follow these steps exactly to restore the backend environment:
+
+STEP 1: DATABASE RESTORATION
+1. Create a new local WordPress site (using LocalWP or XAMPP).
+2. Open phpMyAdmin.
+3. Select your database and click "Import".
+4. Choose the file: 'backend/database.sql' and click Go.
+
+STEP 2: PLUGIN INSTALLATION
+1. Refer to 'backend/plugins.txt' for the list of required plugins.
+2. Install and Activate all of them.
+3. CRITICAL: Go to WooCommerce > Settings > Advanced > Legacy API 
+   and enable the checkbox.
+
+STEP 3: URL SYNCHRONIZATION
+Since the database was exported from a different local URL, 
+you must update the links:
+1. Open the "Better Search Replace" plugin.
+2. Search for: http://old-url.local (The URL used by Ismail)
+3. Replace with: http://your-new-local-url.local
+4. Select all tables and run the process.
+
+STEP 4: PERMALINKS
+1. Go to Settings > Permalinks.
+2. Ensure "Post name" is selected.
+3. Click "Save Changes" (even if it's already selected) to 
+   flush the API routes.
+
+STEP 5: CONNECTION TO REACT
+1. Generate REST API Keys (Read/Write) in WooCommerce Settings.
+2. Copy these keys into the 'frontend/.env' file.
+
+------------------------------------------------------------
+DEVELOPMENT NOTE:
+We used the "Localhost Permission Fix" snippet (found in plugins.txt) 
+to bypass SSL/Permission issues during development on Localhost.
+------------------------------------------------------------

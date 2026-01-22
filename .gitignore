@@ -1,0 +1,13 @@
+# Dependencies
+frontend/node_modules/
+frontend/build/
+
+# Production/Local Secrets
+frontend/.env
+
+# OS Metadata
+.DS_Store
+Thumbs.db
+
+# WordPress local files (if any)
+backend/*.log

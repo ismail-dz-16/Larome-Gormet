@@ -1,0 +1,64 @@
+============================================================
+       🔌 REQUIRED WORDPRESS PLUGINS - LUXURY RESTAURANT
+============================================================
+
+To ensure the system functions correctly, install and activate 
+the following plugins in your WordPress dashboard.
+
+------------------------------------------------------------
+1. WOOCOMMERCE
+   - Author: Automattic
+   - Purpose: Core engine for dishes, pricing, and orders.
+   - Link: https://wordpress.org/plugins/woocommerce/
+
+2. COCART - HEADLESS ECOMMERCE
+   - Author: Sébastien Dumont
+   - Purpose: Provides the API endpoints for the React cart.
+   - Link: https://wordpress.org/plugins/cart-rest-api-for-woocommerce/
+
+3. WOOCOMMERCE LEGACY REST API
+   - Author: WooCommerce
+   - Purpose: MANDATORY for API compatibility in WC 9.0+.
+   - Link: https://wordpress.org/plugins/woocommerce-legacy-rest-api/
+
+4. BETTER SEARCH REPLACE
+   - Author: WP Engine
+   - Purpose: To update URLs after importing the database.sql.
+
+5. WPCODE (OR CODE SNIPPETS)
+   - Purpose: To add the Localhost permission fix (Step 4).
+   - Link: https://wordpress.org/plugins/insert-headers-and-footers/
+
+------------------------------------------------------------
+⚙️ CRITICAL CONFIGURATION STEPS (DO NOT SKIP)
+------------------------------------------------------------
+
+[STEP 1: ENABLE LEGACY API]
+Go to: WooCommerce > Settings > Advanced > Legacy API.
+Action: Check "Enable the legacy REST API".
+
+[STEP 2: SET PERMALINKS]
+Go to: Settings > Permalinks.
+Action: Select "Post name" and save.
+
+[STEP 3: GENERATE API KEYS]
+Go to: WooCommerce > Settings > Advanced > REST API.
+Action: Create a Key with "Read/Write" permissions.
+Result: Copy Consumer Key/Secret into 'frontend/.env'.
+
+[STEP 4: LOCALHOST PERMISSION FIX]
+If you are working on Localhost, WooCommerce might block your 
+React app. Follow these steps:
+1. Open WPCode (Code Snippets).
+2. Add a new PHP Snippet with the following code:
+
+   add_filter( 'woocommerce_rest_check_permissions', function( $p, $c, $o, $pt ) {
+       return true; 
+   }, 99, 4 );
+
+3. Activate the snippet.
+NOTE: DEACTIVATE THIS SNIPPET BEFORE MOVING TO PRODUCTION/LIVE.
+
+============================================================
+      INSFP RAHMANIA - FULL-STACK PROJECT - 2026
+============================================================
